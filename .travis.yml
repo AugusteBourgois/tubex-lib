@@ -68,7 +68,7 @@ matrix:
         - $HOME/ibex-lib
     install: pip3 install --upgrade pip
     script:
-      - ./scripts/dependencies/install_ibex.sh
+      - bash scripts/dependencies/install_ibex.sh
       - export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/tubex-lib/build_install
       - export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$HOME/ibex-lib/build_install
       - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
