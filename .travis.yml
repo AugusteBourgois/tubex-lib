@@ -17,7 +17,8 @@ addons:
 matrix:
   include:
   # One environment for python binding:
-  - sudo: true
+  - name: "Docker Linux / Python 3.* versions"
+    sudo: true
     services:
       - docker
     env: DOCKER_IMAGE=benensta/pyibex-docker
@@ -28,7 +29,8 @@ matrix:
       - docker run --rm -v `pwd`:/io $DOCKER_IMAGE /io/scripts/docker/build_pybinding.sh
       - ls wheelhouse
   # Other environments for C++ tests (g++ versions, trees..)
-  - os: linux
+  - name: "Linux / g++-5"
+    os: linux
     addons:
       apt:
         sources:
@@ -37,7 +39,8 @@ matrix:
           - g++-5
     env:
       - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
-  - os: linux
+  - name: "Linux / g++-7"
+    os: linux
     addons:
       apt:
         sources:
@@ -46,7 +49,8 @@ matrix:
           - g++-7
     env:
       - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-  - os: linux
+  - name: "Linux / g++-8"
+    os: linux
     addons:
       apt:
         sources:
@@ -55,7 +59,7 @@ matrix:
           - g++-8
     env:
       - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-  - name: "Python 3.7.4 on macOS"
+  - name: "MacOS / Python 3.7.4"
     os: osx
     osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
     language: shell       # 'language: python' is an error on Travis CI macOS
@@ -77,7 +81,7 @@ matrix:
               -DWITH_TUBE_TREE=OFF
               -DWITH_CAPD=OFF
               -DPYTHON_EXECUTABLE=$(which python3)
-              -DTEST_EXAMPLES=OFF ..=
+              -DTEST_EXAMPLES=OFF ..
       - make
       - make test
       #- make pip_package
