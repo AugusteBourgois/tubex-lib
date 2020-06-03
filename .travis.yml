@@ -81,6 +81,7 @@ matrix:
               -DWITH_TUBE_TREE=OFF
               -DWITH_CAPD=OFF
               -DPYTHON_EXECUTABLE=$(which python3)
+              -DCMAKE_BUILD_TYPE=Release
               -DTEST_EXAMPLES=OFF ..
       - make
       - make test
