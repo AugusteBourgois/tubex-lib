@@ -17,48 +17,48 @@ addons:
 matrix:
   include:
   # One environment for python binding:
-  - name: "Docker Linux / Python 3.* versions"
-    sudo: true
-    services:
-      - docker
-    env: DOCKER_IMAGE=benensta/pyibex-docker
-    install:
-      - docker pull $DOCKER_IMAGE
-    script:
-      - chmod a+x scripts/docker/build_pybinding.sh
-      - docker run --rm -v `pwd`:/io $DOCKER_IMAGE /io/scripts/docker/build_pybinding.sh
-      - ls wheelhouse
-  # Other environments for C++ tests (g++ versions, trees..)
-  - name: "Linux / g++-5"
-    os: linux
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
-          - g++-5
-    env:
-      - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
-  - name: "Linux / g++-7"
-    os: linux
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
-          - g++-7
-    env:
-      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-  - name: "Linux / g++-8"
-    os: linux
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
-          - g++-8
-    env:
-      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+#  - name: "Docker Linux / Python 3.* versions"
+#    sudo: true
+#    services:
+#      - docker
+#    env: DOCKER_IMAGE=benensta/pyibex-docker
+#    install:
+#      - docker pull $DOCKER_IMAGE
+#    script:
+#      - chmod a+x scripts/docker/build_pybinding.sh
+#      - docker run --rm -v `pwd`:/io $DOCKER_IMAGE /io/scripts/docker/build_pybinding.sh
+#      - ls wheelhouse
+#  # Other environments for C++ tests (g++ versions, trees..)
+#  - name: "Linux / g++-5"
+#    os: linux
+#    addons:
+#      apt:
+#        sources:
+#          - ubuntu-toolchain-r-test
+#        packages:
+#          - g++-5
+#    env:
+#      - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+#  - name: "Linux / g++-7"
+#    os: linux
+#    addons:
+#      apt:
+#        sources:
+#          - ubuntu-toolchain-r-test
+#        packages:
+#          - g++-7
+#    env:
+#      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+#  - name: "Linux / g++-8"
+#    os: linux
+#    addons:
+#      apt:
+#        sources:
+#          - ubuntu-toolchain-r-test
+#        packages:
+#          - g++-8
+#    env:
+#      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
   - name: "MacOS / Python 3.7.4"
     os: osx
     osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
@@ -84,6 +84,8 @@ matrix:
               -DCMAKE_BUILD_TYPE=Release
               -DTEST_EXAMPLES=OFF ..
       - make
+      - bash tests/core/tubex-tests-core
+      - ./tests/core/tubex-tests-core
       - make test
       #- make pip_package
 
