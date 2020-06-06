@@ -81,7 +81,8 @@ matrix:
               -DWITH_TUBE_TREE=OFF
               -DWITH_CAPD=OFF
               -DPYTHON_EXECUTABLE=$(which python3)
-              -DCMAKE_BUILD_TYPE=Release
+              #-DCMAKE_BUILD_TYPE=Release
+              -DCMAKE_BUILD_TYPE=Debug 
               -DTEST_EXAMPLES=OFF ..
       - make
       - bash tests/core/tubex-tests-core

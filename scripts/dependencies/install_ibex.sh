@@ -9,7 +9,8 @@ if [ ! -e "ibex-lib/README.md" ]; then
   cd ibex-lib ;
   #git checkout 47fc75a5e14eb2f353ae7e0b37ac0f9dad7801c0 ;
   mkdir build && cd build ;
-  cmake -DCMAKE_CXX_FLAGS="-fPIC -Wno-everything" -DCMAKE_C_FLAGS="-fPIC -Wno-everything" -DINTERVAL_LIB=filib -DCMAKE_INSTALL_PREFIX=$HOME/ibex-lib/build_install .. ;
+  cmake -DCMAKE_CXX_FLAGS="-fPIC -Wno-everything" -DCMAKE_C_FLAGS="-fPIC -Wno-everything" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$HOME/ibex-lib/build_install .. ;
+  # -DINTERVAL_LIB=filib
   make ;
 else
   echo 'Using cached directory.' ;
