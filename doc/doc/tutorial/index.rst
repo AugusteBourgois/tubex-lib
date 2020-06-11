@@ -85,7 +85,7 @@ Prerequisite for attending the tutorial are:
 Contact and registration
 ------------------------
 
-| **For registration, please feel in this questionnaire:**
+| **For registration, please fill in this questionnaire:**
 | https://docs.google.com/forms/d/1nuZ6lxMJ8SmoUeDJzVIjiMUdD5PmX7h72v_N9NtvGq4
 
 The tutorial involves three platforms:
@@ -119,6 +119,8 @@ Interactive meetings sessions are planned each Wednesday afternoon at 2PM (UTC):
   * 17th of June
   * 24th of June
   * 1rst of July
+
+**Interactive sessions (Wed. 10, June):** `select your slot with this form <https://docs.google.com/forms/d/e/1FAIpQLSc4n22iSrwlSMpqqiTc86WmJX1spjzcziHVXPRYfsIdyBU4Kg/viewform?usp=sf_link>`_
 
 
 Content of the tutorial
@@ -166,17 +168,19 @@ Then, depending on your preference between C++ or Python, you can run some *Hell
 
 ------------------------------------------------------
 
+.. _sec-tuto-week1:
+
 **Week 1: June 8 -- June 14**
 
 .. image:: img/tuto_01.png
    :align: right
    :width: 200px
 
-* **Lesson A**: Getting started with intervals and contractors
-* **Lesson B**: Static range-only localization
+.. * **Lesson A**: Getting started with intervals and contractors
+.. * **Lesson B**: Static range-only localization
 
-.. * :ref:`sec-tuto-01`
-.. * :ref:`sec-tuto-02`
+* :ref:`sec-tuto-01`
+* :ref:`sec-tuto-02`
 
 | During this first week, we will install the library and perform the **state estimation** of a static robot between some landmarks. For the moment, we will assume that the robot does not move and is only receiving **range-only data** from the landmarks.
 | This will be an introduction to :ref:`intervals <sec-manual-intervals>`, :ref:`constraints <sec-manual-contractors>` and :ref:`networks of contractors <sec-manual-cn>`.
